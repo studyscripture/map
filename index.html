@@ -1,0 +1,2149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Conceptual Map · Critical Arguments & Contemplative Paths Across Major Traditions</title>
+<style>
+  :root {
+    /* Dark base palette */
+    --cosmos: #0b0816;
+    --cosmos-deep: #06040d;
+    --twilight: #1a1030;
+    --dawn: #2d1b4e;
+    --ink: #0f0c1a;
+    --ink-soft: #1a1630;
+    --parchment: #f5ead6;
+    --parchment-soft: #e8dcc0;
+    --muted: #a89a7e;
+    --muted-dark: #7a6f5a;
+
+    /* Tradition accents */
+    --gold: #b08a3e;
+    --gold-soft: #c9a85c;
+    --gold-bright: #d4b46a;
+    --crimson: #a64545;
+    --crimson-soft: #c96060;
+    --saffron: #e89b3c;
+    --saffron-soft: #f4b86a;
+    --lotus: #c94f6d;
+
+    /* Cards */
+    --card: rgba(26, 16, 48, 0.4);
+    --card-hover: rgba(45, 27, 78, 0.5);
+    --border: rgba(212, 165, 116, 0.15);
+    --border-hover: rgba(232, 155, 60, 0.4);
+    --shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    --shadow-deep: 0 20px 60px rgba(0, 0, 0, 0.6);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: var(--cosmos);
+    color: var(--parchment);
+    line-height: 1.7;
+    font-size: 17px;
+    overflow-x: hidden;
+    background-image:
+      radial-gradient(ellipse at 20% 10%, rgba(232, 155, 60, 0.04), transparent 50%),
+      radial-gradient(ellipse at 80% 60%, rgba(166, 69, 69, 0.04), transparent 50%),
+      radial-gradient(ellipse at 50% 90%, rgba(45, 27, 78, 0.3), transparent 60%);
+  }
+
+  /* Starfield */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      radial-gradient(1px 1px at 20px 30px, rgba(255,255,255,0.4), transparent),
+      radial-gradient(1px 1px at 60px 70px, rgba(255,255,255,0.3), transparent),
+      radial-gradient(1px 1px at 130px 110px, rgba(255,255,255,0.2), transparent),
+      radial-gradient(1px 1px at 200px 50px, rgba(255,255,255,0.3), transparent),
+      radial-gradient(2px 2px at 300px 200px, rgba(244, 184, 106, 0.3), transparent),
+      radial-gradient(1px 1px at 400px 300px, rgba(255,255,255,0.2), transparent),
+      radial-gradient(1px 1px at 500px 150px, rgba(255,255,255,0.3), transparent);
+    background-size: 600px 400px;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.5;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 6rem 2rem;
+    z-index: 1;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at center, rgba(232, 155, 60, 0.08), transparent 60%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(45deg, transparent 0, transparent 60px, rgba(176, 138, 62, 0.015) 60px, rgba(176, 138, 62, 0.015) 61px),
+      repeating-linear-gradient(-45deg, transparent 0, transparent 60px, rgba(176, 138, 62, 0.015) 60px, rgba(176, 138, 62, 0.015) 61px);
+    pointer-events: none;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1100px;
+  }
+
+  .hero .ornament-top {
+    color: var(--gold-soft);
+    font-size: 1.5rem;
+    letter-spacing: 1.5rem;
+    margin-bottom: 2rem;
+    opacity: 0.7;
+  }
+
+  .hero .kicker {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold-soft);
+    margin-bottom: 2rem;
+    opacity: 0.9;
+  }
+
+  .hero h1 {
+    font-family: 'Georgia', serif;
+    font-size: clamp(2rem, 5vw, 3.8rem);
+    font-weight: normal;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.01em;
+    color: var(--parchment);
+  }
+
+  .hero h1 .italic {
+    font-style: italic;
+    color: var(--gold-bright);
+  }
+
+  .hero .divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 2.5rem auto;
+    max-width: 400px;
+  }
+
+  .hero .divider::before,
+  .hero .divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-soft), transparent);
+  }
+
+  .hero .divider span {
+    color: var(--gold-soft);
+    font-size: 1rem;
+    opacity: 0.8;
+  }
+
+  .hero .subtitle {
+    font-size: 1.15rem;
+    color: var(--parchment-soft);
+    max-width: 750px;
+    margin: 0 auto 2rem;
+    font-style: italic;
+    line-height: 1.8;
+  }
+
+  .hero .traditions {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .hero .tradition {
+    text-align: center;
+    padding: 1.2rem 1.5rem;
+    border: 1px solid rgba(212, 165, 116, 0.15);
+    border-radius: 4px;
+    min-width: 200px;
+    transition: all 0.3s ease;
+    background: rgba(26, 16, 48, 0.3);
+    backdrop-filter: blur(10px);
+  }
+
+  .hero .tradition:hover {
+    border-color: var(--gold-soft);
+    transform: translateY(-3px);
+  }
+
+  .hero .tradition .label {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold-soft);
+    opacity: 0.7;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero .tradition .name {
+    font-family: 'Georgia', serif;
+    font-size: 1.3rem;
+    font-style: italic;
+    color: var(--parchment);
+  }
+
+  .hero .tradition .type {
+    font-size: 0.8rem;
+    color: var(--muted);
+    font-style: italic;
+    margin-top: 0.3rem;
+  }
+
+  .hero .scroll-hint {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--gold-soft);
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    opacity: 0.6;
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(-8px); }
+  }
+
+  /* ===== NAVIGATION ===== */
+  nav.toc {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(11, 8, 22, 0.9);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(212, 165, 116, 0.15);
+    padding: 0.8rem 2rem;
+  }
+
+  nav.toc .nav-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  nav.toc .nav-brand {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    color: var(--parchment-soft);
+    font-size: 0.95rem;
+    white-space: nowrap;
+  }
+
+  nav.toc ul {
+    list-style: none;
+    display: flex;
+    gap: 0.3rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  nav.toc a {
+    display: block;
+    padding: 0.4rem 0.8rem;
+    text-decoration: none;
+    color: var(--parchment-soft);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+  }
+
+  nav.toc a:hover {
+    color: var(--gold-bright);
+    border-color: var(--gold-soft);
+    background: rgba(176, 138, 62, 0.08);
+  }
+
+  nav.toc a.part {
+    font-weight: 600;
+    color: var(--parchment);
+    border-color: rgba(212, 165, 116, 0.2);
+  }
+
+  nav.toc a.part.jc { color: var(--crimson-soft); }
+  nav.toc a.part.islam { color: var(--gold-bright); }
+  nav.toc a.part.vedanta { color: var(--saffron-soft); }
+
+  /* ===== MAIN ===== */
+  main {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* ===== PART DIVIDERS ===== */
+  .part-divider {
+    text-align: center;
+    padding: 6rem 2rem;
+    margin: 4rem -2rem;
+    position: relative;
+    border-top: 1px solid rgba(212, 165, 116, 0.15);
+    border-bottom: 1px solid rgba(212, 165, 116, 0.15);
+  }
+
+  .part-divider.jc {
+    background:
+      radial-gradient(ellipse at center, rgba(166, 69, 69, 0.08), transparent 60%),
+      linear-gradient(180deg, transparent, rgba(26, 16, 48, 0.4), transparent);
+  }
+
+  .part-divider.islam {
+    background:
+      radial-gradient(ellipse at center, rgba(176, 138, 62, 0.08), transparent 60%),
+      linear-gradient(180deg, transparent, rgba(26, 16, 48, 0.4), transparent);
+  }
+
+  .part-divider.vedanta {
+    background:
+      radial-gradient(ellipse at center, rgba(232, 155, 60, 0.12), transparent 60%),
+      linear-gradient(180deg, transparent, rgba(45, 27, 78, 0.5), transparent);
+  }
+
+  .part-divider .part-number {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 1rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    opacity: 0.8;
+  }
+
+  .part-divider.jc .part-number { color: var(--crimson-soft); }
+  .part-divider.islam .part-number { color: var(--gold-bright); }
+  .part-divider.vedanta .part-number { color: var(--saffron-soft); }
+
+  .part-divider h2 {
+    font-family: 'Georgia', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: normal;
+    color: var(--parchment);
+    margin-bottom: 1rem;
+    letter-spacing: -0.01em;
+  }
+
+  .part-divider h2 .italic {
+    font-style: italic;
+  }
+
+  .part-divider.jc h2 .italic { color: var(--crimson-soft); }
+  .part-divider.islam h2 .italic { color: var(--gold-bright); }
+  .part-divider.vedanta h2 .italic { color: var(--saffron-soft); }
+
+  .part-divider .ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1.5rem auto;
+    max-width: 300px;
+  }
+
+  .part-divider .ornament::before,
+  .part-divider .ornament::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-soft), transparent);
+  }
+
+  .part-divider .ornament span {
+    font-size: 1rem;
+  }
+
+  .part-divider.jc .ornament span { color: var(--crimson-soft); }
+  .part-divider.islam .ornament span { color: var(--gold-bright); }
+  .part-divider.vedanta .ornament span { color: var(--saffron-soft); }
+
+  .part-divider .part-intro {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    color: var(--parchment-soft);
+    font-style: italic;
+    line-height: 1.8;
+  }
+
+  .part-divider .part-type {
+    display: inline-block;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.8rem;
+    border-radius: 2px;
+    margin-top: 1.5rem;
+  }
+
+  .part-divider.jc .part-type,
+  .part-divider.islam .part-type {
+    color: var(--muted);
+    background: rgba(212, 165, 116, 0.05);
+    border: 1px solid rgba(212, 165, 116, 0.15);
+  }
+
+  .part-divider.vedanta .part-type {
+    color: var(--saffron-soft);
+    background: rgba(232, 155, 60, 0.08);
+    border: 1px solid rgba(232, 155, 60, 0.25);
+  }
+
+  /* ===== SECTIONS ===== */
+  section {
+    margin-bottom: 5rem;
+    scroll-margin-top: 80px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    position: relative;
+    border-bottom: 1px solid rgba(212, 165, 116, 0.2);
+  }
+
+  .section-header::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 80px;
+    height: 2px;
+  }
+
+  .jc-section .section-header::after { background: var(--crimson); }
+  .islam-section .section-header::after { background: var(--gold); }
+
+  .section-number {
+    font-family: 'Georgia', serif;
+    font-size: 3.5rem;
+    font-weight: normal;
+    line-height: 1;
+    font-style: italic;
+    opacity: 0.4;
+  }
+
+  .jc-section .section-number { color: var(--crimson-soft); }
+  .islam-section .section-number { color: var(--gold-bright); }
+
+  .section-header h3 {
+    font-family: 'Georgia', serif;
+    font-size: clamp(1.5rem, 3vw, 2.1rem);
+    font-weight: normal;
+    color: var(--parchment);
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+  }
+
+  .section-header h3 .sub {
+    display: block;
+    font-size: 0.75em;
+    color: var(--muted);
+    font-style: italic;
+    margin-top: 0.3rem;
+  }
+
+  .section-intro {
+    font-size: 1.05rem;
+    color: var(--parchment-soft);
+    font-style: italic;
+    margin-bottom: 2.5rem;
+    padding-left: 1.5rem;
+    max-width: 800px;
+  }
+
+  .jc-section .section-intro { border-left: 3px solid var(--crimson); }
+  .islam-section .section-intro { border-left: 3px solid var(--gold); }
+
+  /* ===== CARDS ===== */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    position: relative;
+    backdrop-filter: blur(10px);
+  }
+
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-deep);
+    border-color: var(--border-hover);
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    border-radius: 4px 0 0 4px;
+  }
+
+  .card.crimson::before { background: linear-gradient(180deg, var(--crimson), var(--crimson-soft)); }
+  .card.gold::before { background: linear-gradient(180deg, var(--gold), var(--gold-soft)); }
+
+  .card h4 {
+    font-family: 'Georgia', serif;
+    font-size: 1.25rem;
+    font-weight: normal;
+    color: var(--parchment);
+    margin-bottom: 0.3rem;
+    line-height: 1.3;
+  }
+
+  .card .card-sub {
+    font-style: italic;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    letter-spacing: 0.02em;
+  }
+
+  .card.crimson .card-sub { color: var(--crimson-soft); }
+  .card.gold .card-sub { color: var(--gold-bright); }
+
+  .card p {
+    color: var(--parchment-soft);
+    font-size: 0.98rem;
+    line-height: 1.7;
+    margin-bottom: 0.5rem;
+  }
+
+  .card p:last-child { margin-bottom: 0; }
+
+  .card .verse {
+    font-style: italic;
+    padding: 0.3rem 0.6rem;
+    border-radius: 2px;
+    font-size: 0.9rem;
+    display: inline-block;
+  }
+
+  .card.crimson .verse {
+    color: var(--crimson-soft);
+    background: rgba(166, 69, 69, 0.1);
+  }
+
+  .card.gold .verse {
+    color: var(--gold-bright);
+    background: rgba(176, 138, 62, 0.1);
+  }
+
+  .card .attribution {
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-style: italic;
+    margin-top: 0.8rem;
+    padding-top: 0.8rem;
+    border-top: 1px dashed rgba(212, 165, 116, 0.15);
+  }
+
+  /* Sub-cards */
+  .sub-cards {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .sub-card {
+    padding: 1rem 1.2rem;
+    border-radius: 2px;
+    background: rgba(11, 8, 22, 0.4);
+  }
+
+  .sub-card.crimson { border-left: 2px solid var(--crimson); }
+  .sub-card.gold { border-left: 2px solid var(--gold); }
+
+  .sub-card strong {
+    display: block;
+    color: var(--parchment);
+    font-family: 'Georgia', serif;
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+    font-weight: normal;
+    font-style: italic;
+  }
+
+  .sub-card p {
+    font-size: 0.92rem;
+    color: var(--parchment-soft);
+  }
+
+  /* ===== VEDANTA SPECIFIC ===== */
+  .vedanta-section .section-header {
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .vedanta-section .section-header::after { display: none; }
+
+  .vedanta-section .section-number {
+    color: var(--saffron);
+    font-size: 0.9rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+
+  .vedanta-section .section-header h3 {
+    text-align: center;
+  }
+
+  .vedanta-section .section-header h3 .sanskrit-inline {
+    color: var(--saffron-soft);
+    font-style: italic;
+    display: block;
+    font-size: 0.7em;
+    margin-top: 0.5rem;
+    letter-spacing: 0.05em;
+  }
+
+  .vedanta-section .section-header .ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1.5rem auto;
+    max-width: 200px;
+  }
+
+  .vedanta-section .section-header .ornament::before,
+  .vedanta-section .section-header .ornament::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .vedanta-section .section-header .ornament span {
+    color: var(--saffron);
+    font-size: 1rem;
+  }
+
+  .vedanta-section .section-intro {
+    text-align: center;
+    border-left: none;
+    padding-left: 0;
+    max-width: 700px;
+    margin: 0 auto 3rem;
+  }
+
+  /* Mahavakyas */
+  .mahavakyas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .mahavakya {
+    background: linear-gradient(135deg, rgba(45, 27, 78, 0.4), rgba(26, 16, 48, 0.6));
+    border: 1px solid rgba(232, 155, 60, 0.2);
+    border-radius: 4px;
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    transition: all 0.4s ease;
+    backdrop-filter: blur(10px);
+  }
+
+  .mahavakya:hover {
+    border-color: var(--saffron);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(232, 155, 60, 0.1);
+  }
+
+  .mahavakya .veda {
+    font-size: 0.75rem;
+    color: var(--gold);
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    opacity: 0.7;
+  }
+
+  .mahavakya .sanskrit-text {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    color: var(--saffron-soft);
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
+    line-height: 1.3;
+    font-weight: 300;
+  }
+
+  .mahavakya .meaning {
+    color: var(--parchment);
+    font-size: 1.05rem;
+    font-style: italic;
+    margin-bottom: 0.8rem;
+  }
+
+  .mahavakya .literal {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  /* Koshas */
+  .koshas {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .kosha {
+    background: linear-gradient(135deg, rgba(26, 16, 48, 0.4), rgba(11, 8, 22, 0.6));
+    border: 1px solid rgba(212, 165, 116, 0.2);
+    border-radius: 4px;
+    padding: 1.8rem 2rem;
+    margin-bottom: 1rem;
+    position: relative;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+  }
+
+  .kosha:hover {
+    border-color: var(--saffron);
+    background: linear-gradient(135deg, rgba(45, 27, 78, 0.5), rgba(26, 16, 48, 0.7));
+  }
+
+  .kosha .layer {
+    position: absolute;
+    top: 1.8rem;
+    right: 2rem;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    color: var(--gold);
+    font-size: 0.85rem;
+    opacity: 0.6;
+  }
+
+  .kosha h4 {
+    font-family: 'Georgia', serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--parchment);
+    margin-bottom: 0.3rem;
+  }
+
+  .kosha .name-sanskrit {
+    font-style: italic;
+    color: var(--saffron-soft);
+    font-size: 0.95rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .kosha p {
+    color: var(--parchment-soft);
+    font-size: 0.98rem;
+    line-height: 1.7;
+  }
+
+  .kosha .verdict {
+    margin-top: 0.8rem;
+    padding-top: 0.8rem;
+    border-top: 1px dashed rgba(212, 165, 116, 0.2);
+    font-style: italic;
+    color: var(--gold);
+    font-size: 0.95rem;
+  }
+
+  /* States */
+  .states {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .state {
+    background: linear-gradient(135deg, rgba(26, 16, 48, 0.5), rgba(11, 8, 22, 0.7));
+    border: 1px solid rgba(212, 165, 116, 0.15);
+    border-radius: 4px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: all 0.4s ease;
+    backdrop-filter: blur(10px);
+  }
+
+  .state:hover {
+    border-color: var(--saffron);
+    transform: translateY(-3px);
+  }
+
+  .state.turiya {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, rgba(232, 155, 60, 0.1), rgba(201, 79, 109, 0.08));
+    border-color: var(--saffron);
+    max-width: 500px;
+    margin: 1rem auto 0;
+  }
+
+  .state .symbol {
+    font-size: 2rem;
+    color: var(--saffron);
+    margin-bottom: 0.8rem;
+    opacity: 0.8;
+  }
+
+  .state h4 {
+    font-family: 'Georgia', serif;
+    font-size: 1.3rem;
+    color: var(--parchment);
+    margin-bottom: 0.3rem;
+    font-weight: 400;
+  }
+
+  .state .sanskrit-name {
+    font-style: italic;
+    color: var(--saffron-soft);
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .state p {
+    color: var(--parchment-soft);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  /* Practice steps */
+  .practice-steps {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .practice-steps::before {
+    content: '';
+    position: absolute;
+    left: 30px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(180deg, transparent, var(--saffron), transparent);
+    opacity: 0.3;
+  }
+
+  .practice-step {
+    padding-left: 80px;
+    margin-bottom: 2.5rem;
+    position: relative;
+  }
+
+  .practice-step::before {
+    content: '';
+    position: absolute;
+    left: 22px;
+    top: 10px;
+    width: 16px;
+    height: 16px;
+    border: 1px solid var(--saffron);
+    border-radius: 50%;
+    background: var(--cosmos);
+  }
+
+  .practice-step::after {
+    content: '';
+    position: absolute;
+    left: 27px;
+    top: 15px;
+    width: 6px;
+    height: 6px;
+    background: var(--saffron);
+    border-radius: 50%;
+  }
+
+  .practice-step h4 {
+    font-family: 'Georgia', serif;
+    font-size: 1.4rem;
+    color: var(--parchment);
+    font-weight: 400;
+    margin-bottom: 0.3rem;
+  }
+
+  .practice-step .sanskrit-name {
+    font-style: italic;
+    color: var(--saffron-soft);
+    font-size: 0.95rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .practice-step p {
+    color: var(--parchment-soft);
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  /* Stages */
+  .stages {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .stage {
+    background: linear-gradient(135deg, rgba(26, 16, 48, 0.4), rgba(11, 8, 22, 0.6));
+    border: 1px solid rgba(212, 165, 116, 0.15);
+    border-radius: 4px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: all 0.4s ease;
+    backdrop-filter: blur(10px);
+  }
+
+  .stage:hover {
+    border-color: var(--saffron);
+    transform: translateY(-3px);
+  }
+
+  .stage .numeral {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    color: var(--saffron);
+    font-size: 2.5rem;
+    line-height: 1;
+    margin-bottom: 0.8rem;
+    opacity: 0.7;
+  }
+
+  .stage h4 {
+    font-family: 'Georgia', serif;
+    font-size: 1.25rem;
+    color: var(--parchment);
+    font-weight: 400;
+    margin-bottom: 0.3rem;
+  }
+
+  .stage .sanskrit-name {
+    font-style: italic;
+    color: var(--saffron-soft);
+    font-size: 0.85rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .stage p {
+    color: var(--parchment-soft);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  /* Quote */
+  .quote {
+    max-width: 800px;
+    margin: 4rem auto;
+    padding: 3rem 2rem;
+    text-align: center;
+    position: relative;
+    border-top: 1px solid rgba(212, 165, 116, 0.2);
+    border-bottom: 1px solid rgba(212, 165, 116, 0.2);
+  }
+
+  .quote::before {
+    content: '"';
+    position: absolute;
+    top: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Georgia', serif;
+    font-size: 4rem;
+    color: var(--gold);
+    background: var(--cosmos);
+    padding: 0 1rem;
+    line-height: 1;
+  }
+
+  .quote p {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 1.4rem;
+    color: var(--parchment);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .quote .source {
+    color: var(--gold);
+    font-size: 0.9rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-style: normal;
+  }
+
+  /* ===== SYNTHESIS ===== */
+  .synthesis {
+    background: linear-gradient(135deg, #06040d 0%, #1a1030 100%);
+    color: var(--parchment);
+    padding: 5rem 2rem;
+    margin: 5rem -2rem 0;
+    position: relative;
+    border-top: 1px solid rgba(212, 165, 116, 0.15);
+    border-bottom: 1px solid rgba(212, 165, 116, 0.15);
+  }
+
+  .synthesis::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at top, rgba(176, 138, 62, 0.06), transparent 60%),
+      radial-gradient(ellipse at bottom, rgba(166, 69, 69, 0.05), transparent 60%);
+    pointer-events: none;
+  }
+
+  .synthesis-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .synthesis .kicker {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold-soft);
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .synthesis h2 {
+    font-family: 'Georgia', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: normal;
+    margin-bottom: 0.5rem;
+    color: var(--parchment);
+    text-align: center;
+  }
+
+  .synthesis h2 .italic {
+    color: var(--gold-bright);
+    font-style: italic;
+  }
+
+  .synthesis .lead {
+    font-style: italic;
+    color: var(--parchment-soft);
+    margin-bottom: 3rem;
+    font-size: 1.05rem;
+    text-align: center;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .synthesis-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .synthesis-card {
+    background: rgba(250, 245, 232, 0.03);
+    border: 1px solid rgba(176, 138, 62, 0.2);
+    border-radius: 4px;
+    padding: 1.8rem;
+    transition: all 0.3s ease;
+  }
+
+  .synthesis-card:hover {
+    border-color: var(--gold-soft);
+    background: rgba(250, 245, 232, 0.05);
+  }
+
+  .synthesis-card .num {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    color: var(--gold-bright);
+    font-size: 1.8rem;
+    line-height: 1;
+    margin-bottom: 0.8rem;
+    opacity: 0.7;
+  }
+
+  .synthesis-card h4 {
+    font-family: 'Georgia', serif;
+    font-size: 1.1rem;
+    color: var(--parchment);
+    font-weight: normal;
+    margin-bottom: 0.6rem;
+  }
+
+  .synthesis-card p {
+    color: var(--parchment-soft);
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+
+  .synthesis-conclusion {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(176, 138, 62, 0.2);
+  }
+
+  .synthesis-conclusion p {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--parchment);
+    line-height: 1.7;
+    max-width: 750px;
+    margin: 0 auto;
+  }
+
+  /* ===== BENEDICTION ===== */
+  .benediction {
+    text-align: center;
+    padding: 6rem 2rem;
+    margin: 0 -2rem;
+    background:
+      radial-gradient(ellipse at center, rgba(232, 155, 60, 0.08), transparent 60%),
+      linear-gradient(180deg, transparent, rgba(26, 16, 48, 0.5));
+    position: relative;
+  }
+
+  .benediction .om {
+    font-size: 4rem;
+    color: var(--saffron);
+    margin-bottom: 1.5rem;
+    opacity: 0.8;
+    animation: pulse 4s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 0.9; transform: scale(1.05); }
+  }
+
+  .benediction h2 {
+    font-family: 'Georgia', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 300;
+    color: var(--parchment);
+    margin-bottom: 1.5rem;
+    font-style: italic;
+  }
+
+  .benediction p {
+    max-width: 600px;
+    margin: 0 auto 1rem;
+    font-size: 1.1rem;
+    color: var(--parchment-soft);
+    line-height: 1.8;
+    font-style: italic;
+  }
+
+  .benediction .peace {
+    margin-top: 2rem;
+    color: var(--gold);
+    letter-spacing: 0.3em;
+    font-size: 0.9rem;
+  }
+
+  /* ===== NOTE ===== */
+  .note {
+    max-width: 900px;
+    margin: 4rem auto;
+    padding: 2.5rem;
+    background: rgba(26, 16, 48, 0.4);
+    border: 1px solid rgba(212, 165, 116, 0.2);
+    border-left: 4px solid var(--gold);
+    border-radius: 4px;
+    backdrop-filter: blur(10px);
+  }
+
+  .note-label {
+    display: inline-block;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    padding: 0.3rem 0.8rem;
+    background: rgba(176, 138, 62, 0.08);
+    border-radius: 2px;
+  }
+
+  .note h3 {
+    font-family: 'Georgia', serif;
+    font-size: 1.4rem;
+    font-weight: normal;
+    color: var(--parchment);
+    margin-bottom: 1rem;
+  }
+
+  .note p {
+    color: var(--parchment-soft);
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+
+  .note p:last-child { margin-bottom: 0; }
+
+  /* ===== FOOTER ===== */
+  footer {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: rgba(6, 4, 13, 0.6);
+    color: var(--muted);
+    font-size: 0.85rem;
+    font-style: italic;
+    border-top: 1px solid rgba(212, 165, 116, 0.1);
+    margin-top: 2rem;
+  }
+
+  footer .ornament {
+    color: var(--gold);
+    letter-spacing: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+  }
+
+  footer .title {
+    font-family: 'Georgia', serif;
+    font-size: 1.1rem;
+    color: var(--parchment-soft);
+    margin-bottom: 0.5rem;
+    font-style: italic;
+  }
+
+  /* ===== ANIMATIONS ===== */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .card, .sub-card, .synthesis-card, .mahavakya, .kosha, .state, .stage, .practice-step {
+    animation: fadeInUp 0.8s ease backwards;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    .hero { min-height: 90vh; padding: 4rem 1.5rem; }
+    .hero .traditions { gap: 1.5rem; }
+    .hero .tradition { min-width: 160px; }
+    .part-divider { padding: 4rem 1.5rem; margin: 3rem -1.5rem; }
+    .section-header { flex-direction: column; gap: 0.5rem; }
+    .section-number { font-size: 2.5rem; }
+    main { padding: 0 1.2rem; }
+    .synthesis { padding: 3rem 1.5rem; margin: 3rem -1.2rem 0; }
+    .benediction { padding: 4rem 1.5rem; margin: 0 -1.2rem; }
+    .note { padding: 1.5rem; margin: 3rem auto; }
+    nav.toc .nav-inner { flex-direction: column; gap: 0.8rem; }
+    .practice-steps::before { left: 20px; }
+    .practice-step { padding-left: 60px; }
+    .practice-step::before { left: 12px; }
+    .practice-step::after { left: 17px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-content">
+    <div class="ornament-top">✦ ✦ ✦</div>
+    <div class="kicker">A Scholarly Conceptual Map</div>
+    <h1>Critical Arguments <span class="italic">&amp;</span><br>Contemplative Paths Across<br>Major Traditions</h1>
+    <div class="divider"><span>❖</span></div>
+    <p class="subtitle">A unified survey of the principal philosophical, historical, scientific, comparative, and ethical lines of inquiry advanced by skeptical scholarship — alongside the contemplative path of Advaita Vedanta, which offers a radically different vision of the divine.</p>
+    <div class="traditions">
+      <div class="tradition">
+        <div class="label">Part I</div>
+        <div class="name">Judaism <em>&amp;</em> Christianity</div>
+        <div class="type">A Critical Survey</div>
+      </div>
+      <div class="tradition">
+        <div class="label">Part II</div>
+        <div class="name">Islam</div>
+        <div class="type">A Critical Survey</div>
+      </div>
+      <div class="tradition">
+        <div class="label">Part III</div>
+        <div class="name">Vedanta</div>
+        <div class="type">A Contemplative Path</div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint">Begin the Inquiry ↓</div>
+</header>
+
+<nav class="toc">
+  <div class="nav-inner">
+    <div class="nav-brand">A Conceptual Map</div>
+    <ul>
+      <li><a href="#part-jc" class="part jc">I · Judaism &amp; Christianity</a></li>
+      <li><a href="#jc-phil">Philosophy</a></li>
+      <li><a href="#jc-text">Texts</a></li>
+      <li><a href="#jc-sci">Science</a></li>
+      <li><a href="#jc-comp">Comparative</a></li>
+      <li><a href="#jc-exc">Exclusivity</a></li>
+      <li><a href="#part-islam" class="part islam">II · Islam</a></li>
+      <li><a href="#i-phil">Philosophy</a></li>
+      <li><a href="#ii-text">Texts</a></li>
+      <li><a href="#iii-sci">Science</a></li>
+      <li><a href="#iv-comp">Comparative</a></li>
+      <li><a href="#v-eth">Ethics</a></li>
+      <li><a href="#part-vedanta" class="part vedanta">III · Vedanta</a></li>
+      <li><a href="#mahavakyas">Declarations</a></li>
+      <li><a href="#nature">Brahman</a></li>
+      <li><a href="#path">The Path</a></li>
+      <li><a href="#koshas">Sheaths</a></li>
+      <li><a href="#inquiry">Inquiry</a></li>
+      <li><a href="#synthesis">Synthesis</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ============================================= -->
+  <!-- PART I: JUDAISM & CHRISTIANITY -->
+  <!-- ============================================= -->
+  <div class="part-divider jc" id="part-jc">
+    <div class="part-number">Part I</div>
+    <h2>The Truth Claims of <span class="italic">Judaism &amp; Christianity</span></h2>
+    <div class="ornament"><span>❖</span></div>
+    <p class="part-intro">Five territories of critique directed at the foundational claims of the Judeo-Christian tradition — that the Hebrew Bible and the New Testament are divinely inspired, and that Jesus of Nazareth is the Messiah and Son of God.</p>
+    <div class="part-type">A Critical Survey</div>
+  </div>
+
+  <!-- I. Philosophy -->
+  <section id="jc-phil" class="jc-section">
+    <div class="section-header">
+      <div class="section-number">I</div>
+      <h3>Philosophical Challenges
+        <span class="sub">On the coherence of divine attributes and the reality of suffering</span>
+      </h3>
+    </div>
+    <p class="section-intro">These arguments interrogate the logical coherence of classical theism as inherited by both traditions.</p>
+
+    <div class="cards">
+      <div class="card crimson">
+        <h4>The Problem of Evil &amp; Suffering</h4>
+        <div class="card-sub">The Logical and Evidential Challenges</div>
+        <p><strong>The Logical Problem.</strong> The coexistence of an omnipotent, omnibenevolent, and omniscient God with the existence of evil and suffering is argued to be logically contradictory.</p>
+        <p><strong>The Evidential Problem.</strong> The sheer scale and distribution of gratuitous suffering — natural disasters, childhood disease, animal pain — is said to make the existence of such a God highly improbable.</p>
+        <div class="attribution">Epicurus · J. L. Mackie · William L. Rowe</div>
+      </div>
+
+      <div class="card crimson">
+        <h4>Divine Hiddenness</h4>
+        <div class="card-sub">The Problem of Non-Resistant Non-Belief</div>
+        <p>If a loving God desires a personal relationship with humanity, God would ensure that all capable, non-resistant individuals can reasonably believe in His existence. The widespread phenomenon of non-resistant non-belief — sincere seekers who remain unconvinced — is argued to suggest such a God does not exist.</p>
+        <div class="attribution">J. L. Schellenberg</div>
+      </div>
+
+      <div class="card crimson">
+        <h4>Incoherence of Divine Attributes</h4>
+        <div class="card-sub">Philosophical Paradoxes</div>
+        <p>Philosophical paradoxes surround the classical concept of God:</p>
+        <div class="sub-cards">
+          <div class="sub-card crimson">
+            <strong>Omniscience vs. Free Will</strong>
+            <p>The tension between divine foreknowledge and genuine human freedom.</p>
+          </div>
+          <div class="sub-card crimson">
+            <strong>The Limits of Omnipotence</strong>
+            <p>"Can God create a stone so heavy He cannot lift it?"</p>
+          </div>
+          <div class="sub-card crimson">
+            <strong>Immutability vs. Action</strong>
+            <p>The compatibility of an unchanging God with one who acts, responds, and relates.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- II. Textual History -->
+  <section id="jc-text" class="jc-section">
+    <div class="section-header">
+      <div class="section-number">II</div>
+      <h3>Historical &amp; Textual Criticism
+        <span class="sub">On the human origins and historical reliability of sacred scripture</span>
+      </h3>
+    </div>
+    <p class="section-intro">These arguments challenge the divine authorship and historical accuracy of the Hebrew Bible and the New Testament.</p>
+
+    <div class="cards">
+      <div class="card crimson">
+        <h4>Challenges to the Hebrew Bible</h4>
+        <div class="card-sub">The Documentary Hypothesis and Archaeology</div>
+        <div class="sub-cards">
+          <div class="sub-card crimson">
+            <strong>The Documentary Hypothesis</strong>
+            <p>Mainstream biblical scholarship posits that the Torah is not a single text dictated by God to Moses, but a composite of multiple sources (J, E, D, P) written and edited over centuries, reflecting the political and theological biases of different eras.</p>
+          </div>
+          <div class="sub-card crimson">
+            <strong>Archaeological Discrepancies</strong>
+            <p>A lack of material evidence for key narrative events: the Exodus of millions of Israelites from Egypt, a global flood, or the conquest of Canaan as described in the Book of Joshua.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card crimson">
+        <h4>Challenges to the New Testament</h4>
+        <div class="card-sub">Authorship and Internal Contradictions</div>
+        <div class="sub-cards">
+          <div class="sub-card crimson">
+            <strong>Anonymous &amp; Late Authorship</strong>
+            <p>The Gospels were written anonymously 40 to 70 years after the death of Jesus by non-eyewitnesses, in a different language (Greek) than Jesus spoke (Aramaic), allowing for legendary development and theological shaping.</p>
+          </div>
+          <div class="sub-card crimson">
+            <strong>Internal Contradictions</strong>
+            <p>Discrepancies in key narratives — the differing genealogies of Jesus, the varying accounts of the resurrection (who went to the tomb, what they saw, what they did next), and the cleansing of the Temple.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card crimson">
+        <h4>The Historical Jesus vs. The Christ of Faith</h4>
+        <div class="card-sub">A Theological Construct?</div>
+        <p>A growing body of scholarship argues that the divine, miracle-working figure of Christian doctrine is a theological construct that evolved over time — distinct from the historical Jewish preacher of Galilee. The layers of tradition, confession, and creed obscure the recoverable figure beneath.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- III. Science -->
+  <section id="jc-sci" class="jc-section">
+    <div class="section-header">
+      <div class="section-number">III</div>
+      <h3>Scientific &amp; Naturalistic Explanations
+        <span class="sub">On empirical accounts that render divine action unnecessary</span>
+      </h3>
+    </div>
+    <p class="section-intro">These arguments assert that natural, empirical explanations account for phenomena traditionally attributed to divine action.</p>
+
+    <div class="cards">
+      <div class="card crimson">
+        <h4>Cosmology &amp; Biology</h4>
+        <div class="card-sub">Deep Time and Evolution</div>
+        <p>The age of the universe (13.8 billion years) and the Earth (4.5 billion years), along with the mechanism of evolution by natural selection, directly contradict literalist interpretations of the Genesis creation narrative. While many modern adherents accept theistic evolution, the truth of revealed, literal scripture is thereby challenged.</p>
+      </div>
+
+      <div class="card crimson">
+        <h4>The Cognitive Science of Religion</h4>
+        <div class="card-sub">Religion as Evolutionary Byproduct</div>
+        <p>Religious belief can be explained as a byproduct of normal human cognitive mechanisms — notably the <em>Hyperactive Agency Detection Device</em> (HADD), which evolved to assume intentional agents behind ambiguous events (rustling grass, unexplained sounds) for survival purposes. This suggests religion is a natural, evolutionary construct rather than a divine revelation.</p>
+      </div>
+
+      <div class="card crimson">
+        <h4>Neuroscience &amp; Psychology</h4>
+        <div class="card-sub">The Natural Basis of the Transcendent</div>
+        <p>Studies show that spiritual and mystical experiences can be induced or altered through:</p>
+        <div class="sub-cards">
+          <div class="sub-card crimson">
+            <strong>Targeted Brain Stimulation</strong>
+            <p>E.g., the "God helmet" experiments.</p>
+          </div>
+          <div class="sub-card crimson">
+            <strong>Neurochemistry</strong>
+            <p>Psychoactive substances and their effects on mystical experience.</p>
+          </div>
+          <div class="sub-card crimson">
+            <strong>Psychological Suggestion</strong>
+            <p>Social context and expectancy effects.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IV. Comparative -->
+  <section id="jc-comp" class="jc-section">
+    <div class="section-header">
+      <div class="section-number">IV</div>
+      <h3>Comparative &amp; Anthropological Perspectives
+        <span class="sub">On religion as a global, human phenomenon</span>
+      </h3>
+    </div>
+    <p class="section-intro">These arguments examine Judaism and Christianity within the broader context of global religious development.</p>
+
+    <div class="cards">
+      <div class="card crimson">
+        <h4>The Argument from Inconsistent Revelations</h4>
+        <div class="card-sub">Thousands of Mutually Exclusive Truths</div>
+        <p>Thousands of mutually exclusive religions have existed throughout history, each claiming exclusive truth, divine revelation, and miraculous evidence. Geographically, a person's religion is overwhelmingly predicted by their birthplace and culture. This is argued to suggest all religions — including Judaism and Christianity — are human cultural constructs rather than objective divine truths.</p>
+      </div>
+
+      <div class="card crimson">
+        <h4>Sociological Origins of Monotheism</h4>
+        <div class="card-sub">From Polytheism to the One God</div>
+        <p>The development of Israelite monotheism can be traced anthropologically from earlier polytheistic and henotheistic systems. Archaeological findings — such as the Kuntillet Ajrud inscriptions referencing "Yahweh and his Asherah" — suggest the presence of other gods and a divine consort in early Israelite religion, complicating the narrative of pure, primordial monotheism.</p>
+      </div>
+
+      <div class="card crimson">
+        <h4>Mythic Parallels</h4>
+        <div class="card-sub">Borrowing from the Ancient World</div>
+        <p>Motifs central to both traditions — the global flood, the dying-and-rising god, divine incarnation, miraculous birth, ascension — appear in numerous earlier and contemporaneous cultures of the ancient Near East and Mediterranean. Critics argue this pattern suggests borrowing and myth-making rather than unique divine revelation.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- V. Exclusivity -->
+  <section id="jc-exc" class="jc-section">
+    <div class="section-header">
+      <div class="section-number">V</div>
+      <h3>Mutual Exclusivity &amp; Unfulfilled Prophecies
+        <span class="sub">On how the two faiths cannot both be true in their orthodox forms</span>
+      </h3>
+    </div>
+    <p class="section-intro">These arguments examine the direct conflict between the truth claims of Judaism and Christianity — a conflict that, critics argue, undermines both.</p>
+
+    <div class="cards">
+      <div class="card crimson">
+        <h4>The Jewish Critique of Christianity</h4>
+        <div class="card-sub">Unfulfilled Messianic Prophecies</div>
+        <div class="sub-cards">
+          <div class="sub-card crimson">
+            <strong>Unfulfilled Prophecies</strong>
+            <p>The Hebrew Bible describes the Messianic age as a time of universal peace, the ingathering of all Jewish exiles to Israel, the rebuilding of the Temple, and universal knowledge of God (Isaiah 2:4, Ezekiel 37). Judaism argues these were not fulfilled by Jesus.</p>
+          </div>
+          <div class="sub-card crimson">
+            <strong>Strict Monotheism</strong>
+            <p>The concept of the Trinity and the divinity of Jesus is viewed as a violation of absolute monotheism — the <em>Shema</em> — bordering on idolatry or polytheism.</p>
+          </div>
+          <div class="sub-card crimson">
+            <strong>Vicarious Atonement</strong>
+            <p>Judaism generally rejects the idea that one person can die to atone for the sins of others, emphasizing personal responsibility and repentance (Ezekiel 18:20).</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card crimson">
+        <h4>The Christian Claim of Fulfillment</h4>
+        <div class="card-sub">Supersessionism</div>
+        <p>Christianity presents itself as the fulfillment and supersession of Judaism — the New Covenant replacing the Old, the Law completed in Christ. This doctrine of Supersessionism (or Replacement Theology) is rejected entirely by Judaism, which maintains the eternal validity of the Sinai covenant.</p>
+      </div>
+
+      <div class="card crimson">
+        <h4>The Logical Impasse</h4>
+        <div class="card-sub">A Direct Contradiction</div>
+        <p>On the identity and role of Jesus, the two traditions make directly contradictory claims:</p>
+        <div class="sub-cards">
+          <div class="sub-card crimson">
+            <strong>Christianity</strong>
+            <p>Jesus is the Messiah, the Son of God, the fulfillment of prophecy.</p>
+          </div>
+          <div class="sub-card crimson">
+            <strong>Judaism</strong>
+            <p>Jesus was not the Messiah, not divine, and the prophecies remain unfulfilled.</p>
+          </div>
+        </div>
+        <p style="margin-top: 1rem; font-style: italic; color: var(--crimson-soft);">Both cannot be simultaneously true. At least one — critics argue, possibly both — must be mistaken.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- PART II: ISLAM -->
+  <!-- ============================================= -->
+  <div class="part-divider islam" id="part-islam">
+    <div class="part-number">Part II</div>
+    <h2>The Truth Claims of <span class="italic">Islam</span></h2>
+    <div class="ornament"><span>❖</span></div>
+    <p class="part-intro">Five territories of critique directed at the foundational claims of the Islamic tradition — that the Quran is the literal, uncreated, perfectly preserved word of God, and that Muhammad is His final messenger.</p>
+    <div class="part-type">A Critical Survey</div>
+  </div>
+
+  <!-- I. Philosophy -->
+  <section id="i-phil" class="islam-section">
+    <div class="section-header">
+      <div class="section-number">I</div>
+      <h3>Philosophical and Theological Challenges
+        <span class="sub">On logical tensions within Islamic theology</span>
+      </h3>
+    </div>
+    <p class="section-intro">These arguments focus on logical tensions within Islamic theology and the nature of the divine as described in Islamic tradition.</p>
+
+    <div class="cards">
+      <div class="card gold">
+        <h4>The Problem of Evil and Suffering</h4>
+        <div class="card-sub">The Evidential Challenge</div>
+        <p>Similar to other monotheistic faiths, critics argue that the existence of gratuitous suffering and evil is logically incompatible with an omnipotent, omniscient, and wholly merciful (<em>Ar-Rahman, Ar-Rahim</em>) God.</p>
+      </div>
+
+      <div class="card gold">
+        <h4>Predestination (Qadar) vs. Human Free Will</h4>
+        <div class="card-sub">A Classic Theological Tension</div>
+        <p>Historically debated between the Mu'tazila and Ash'ari schools. Critics argue that if God has absolute, pre-written knowledge and control over all actions, holding humans eternally accountable in Hell appears morally incoherent.</p>
+        <div class="sub-cards">
+          <div class="sub-card gold">
+            <strong>Key Text</strong>
+            <p><span class="verse">Surah 76:30</span> — "But you cannot will unless Allah wills."</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card gold">
+        <h4>Divine Command Theory and Morality</h4>
+        <div class="card-sub">The Euthyphro Dilemma Applied</div>
+        <p>Is something good because God commands it, or does God command it because it is good?</p>
+        <div class="sub-cards">
+          <div class="sub-card gold">
+            <strong>If the former</strong>
+            <p>Morality becomes arbitrary — if God commanded injustice, it would become just.</p>
+          </div>
+          <div class="sub-card gold">
+            <strong>If the latter</strong>
+            <p>Morality exists independently of God, challenging divine sovereignty.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- II. Textual History -->
+  <section id="ii-text" class="islam-section">
+    <div class="section-header">
+      <div class="section-number">II</div>
+      <h3>Historical and Textual Criticism
+        <span class="sub">On the origins and transmission of sacred texts</span>
+      </h3>
+    </div>
+    <p class="section-intro">These arguments challenge the premise that the Quran is the perfectly preserved, literal, uncreated word of God, and that the Hadith are reliable historical records.</p>
+
+    <div class="cards">
+      <div class="card gold">
+        <h4>Origins and Compilation of the Quran</h4>
+        <div class="card-sub">The Uthmanic Recension</div>
+        <div class="sub-cards">
+          <div class="sub-card gold">
+            <strong>Historical-Critical Scholarship</strong>
+            <p>The Quran was compiled into a standardized codex under Caliph Uthman (circa 650 CE), decades after Muhammad's death, during which variant readings and competing codices (such as those of Ibn Mas'ud and Ubayy ibn Ka'b) were actively destroyed.</p>
+          </div>
+          <div class="sub-card gold">
+            <strong>Manuscript Evidence</strong>
+            <p>Discoveries like the Sana'a palimpsest show underlying texts with variations in wording, surah order, and orthography — suggesting a period of textual fluidity and evolution rather than perfect, static preservation from the beginning.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card gold">
+        <h4>The Reliability of the Hadith</h4>
+        <div class="card-sub">The Chronological Gap</div>
+        <div class="sub-cards">
+          <div class="sub-card gold">
+            <strong>Chronological Gap</strong>
+            <p>The major Hadith collections (Bukhari, Muslim, etc.) were compiled 200 to 250 years after Muhammad's death.</p>
+          </div>
+          <div class="sub-card gold">
+            <strong>Isnad Vulnerability</strong>
+            <p>The science of <em>isnad</em> (chain of transmission) is argued to be vulnerable to fabrication, as chains could be forged retroactively to lend authority to political, legal, or theological opinions emerging in the 8th and 9th centuries.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card gold">
+        <h4>Historical Context of Early Islam</h4>
+        <div class="card-sub">Revisionist Scholarship</div>
+        <p>Some revisionist historians — such as the "Hagarism" thesis or scholars like Patricia Crone and Michael Cook, though some of their early work has been nuanced by later scholarship — have questioned traditional Islamic narratives about the origins of Islam. They suggest it may have emerged more gradually as a distinct religion from a broader monotheistic or Judeo-Christian milieu in the late antique Near East.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- III. Science -->
+  <section id="iii-sci" class="islam-section">
+    <div class="section-header">
+      <div class="section-number">III</div>
+      <h3>Scientific and Naturalistic Explanations
+        <span class="sub">On empirical accounts that challenge revelation</span>
+      </h3>
+    </div>
+    <p class="section-intro">These arguments assert that natural, empirical explanations account for phenomena attributed to divine revelation, and challenge claims of "scientific miracles" in the Quran.</p>
+
+    <div class="cards">
+      <div class="card gold">
+        <h4>Critique of "Scientific Miracles" (I'jaz)</h4>
+        <div class="card-sub">The Apologetic Claim Examined</div>
+        <p>Apologists often claim the Quran contains advanced scientific knowledge. Critics and historians of science counter that these descriptions closely mirror the prevailing, yet ultimately flawed, medical and cosmological theories of the 7th century — particularly those of Galen and Aristotle, known in the Near East via Syriac translations.</p>
+        <div class="sub-cards">
+          <div class="sub-card gold">
+            <strong>Embryology</strong>
+            <p><span class="verse">Surah 23:12–14</span> — often cited but traced to Galenic tradition.</p>
+          </div>
+          <div class="sub-card gold">
+            <strong>Cosmology</strong>
+            <p><span class="verse">Surah 21:30</span> — interpreted apologetically, yet consistent with late antique models.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card gold">
+        <h4>Naturalistic Origins of Revelation</h4>
+        <div class="card-sub">Alternative Explanations</div>
+        <div class="sub-cards">
+          <div class="sub-card gold">
+            <strong>Neurological / Psychological Explanations</strong>
+            <p>Some critics and historians have speculated — though this remains highly debated and sensitive — that Muhammad's experiences of revelation could be explained by natural phenomena, such as temporal lobe epilepsy, intense psychological stress, or profound meditative states, rather than supernatural angelic visitation.</p>
+          </div>
+          <div class="sub-card gold">
+            <strong>Sociological Explanations</strong>
+            <p>The rapid success of early Islam is explained through geopolitical factors (the exhaustion of the Byzantine and Sassanian empires), effective social cohesion, and pragmatic political leadership, rather than divine intervention.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IV. Comparative -->
+  <section id="iv-comp" class="islam-section">
+    <div class="section-header">
+      <div class="section-number">IV</div>
+      <h3>Comparative and Anthropological Perspectives
+        <span class="sub">On Islam within the broader context of global religion</span>
+      </h3>
+    </div>
+    <p class="section-intro">These arguments examine Islam within the broader context of global religious development.</p>
+
+    <div class="cards">
+      <div class="card gold">
+        <h4>Syncretism and Borrowing</h4>
+        <div class="card-sub">Cultural Osmosis in Late Antiquity</div>
+        <p>Many Quranic narratives — the stories of Adam, Noah, Abraham, Moses, and Jesus — closely parallel earlier Judeo-Christian texts, as well as Syriac Christian apocrypha (such as the <em>Infancy Gospel of Thomas</em> and the <em>Syriac Alexander Legend</em>). The argument is that these stories were absorbed through cultural osmosis and oral tradition in 7th-century Arabia, rather than revealed independently by God.</p>
+      </div>
+
+      <div class="card gold">
+        <h4>The Argument from Geography</h4>
+        <div class="card-sub">Cultural Determinism</div>
+        <p>As with other faiths, a person's adherence to Islam is overwhelmingly predicted by being born into a Muslim family or living in a Muslim-majority region. Critics argue this geographic and cultural determinism suggests Islam is a human cultural construct rather than an objective, universal truth.</p>
+      </div>
+
+      <div class="card gold">
+        <h4>Anthropological Evolution of Law</h4>
+        <div class="card-sub">Fiqh as Historical Product</div>
+        <p>The development of Islamic jurisprudence (<em>Fiqh</em>) and Sharia is viewed by anthropologists as a human, evolutionary process that adapted to the specific tribal, economic, and social realities of 7th- to 9th-century Arabia and the subsequent Islamic empires, rather than a timeless, divine blueprint.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- V. Ethics -->
+  <section id="v-eth" class="islam-section">
+    <div class="section-header">
+      <div class="section-number">V</div>
+      <h3>Moral and Ethical Critiques
+        <span class="sub">On tensions with modern human rights frameworks</span>
+      </h3>
+    </div>
+    <p class="section-intro">These arguments focus on the tension between classical Islamic teachings and modern, universally recognized human rights frameworks.</p>
+
+    <div class="cards">
+      <div class="card gold">
+        <h4>Apostasy and Blasphemy</h4>
+        <div class="card-sub">The Suppression of Dissent</div>
+        <p>Classical Islamic jurisprudence prescribes severe penalties, including death, for apostasy (leaving the faith) and blasphemy. Critics argue that a truly divine, universally moral religion would not mandate the suppression of free thought, conscience, and religious freedom.</p>
+      </div>
+
+      <div class="card gold">
+        <h4>Gender Inequality</h4>
+        <div class="card-sub">Patriarchal Norms or Divine Justice?</div>
+        <p>Critics point to Quranic verses and Hadith that are interpreted in classical jurisprudence to permit polygyny, unequal inheritance, male guardianship (<em>wilayah</em>), and the permissibility of wife-discipline. Critics argue these reflect 7th-century patriarchal norms rather than timeless divine justice.</p>
+        <div class="sub-cards">
+          <div class="sub-card gold">
+            <strong>Key Text</strong>
+            <p><span class="verse">Surah 4:34</span> — frequently cited in debates over gender and authority.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card gold">
+        <h4>Slavery and Warfare</h4>
+        <div class="card-sub">Regulated but Endorsed</div>
+        <p>While Islam regulated and encouraged the manumission of slaves, classical Islamic law explicitly permitted the ownership of slaves (including concubinage) and established specific rules for warfare and the taking of captives. Modern critics argue that the endorsement of these institutions, even if regulated, is incompatible with a perfectly moral, transcendent deity.</p>
+        <div class="sub-cards">
+          <div class="sub-card gold">
+            <strong>Key Texts</strong>
+            <p><span class="verse">Surah 23:5–6</span> — referenced in classical discussions of concubinage.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- PART III: VEDANTA -->
+  <!-- ============================================= -->
+  <div class="part-divider vedanta" id="part-vedanta">
+    <div class="part-number">Part III</div>
+    <h2>The Path of <span class="italic">Advaita Vedanta</span></h2>
+    <div class="ornament"><span>❖</span></div>
+    <p class="part-intro">A contemplative map through the wisdom of non-dual Vedanta — the ancient Indian path of recognizing that the seeker and the sought are one, and that the individual self (<em>ātman</em>) is identical with the ultimate reality (<em>Brahman</em>).</p>
+    <div class="part-type">A Contemplative Path</div>
+  </div>
+
+  <!-- Mahavakyas -->
+  <section id="mahavakyas" class="vedanta-section">
+    <div class="section-header">
+      <div class="section-number">Chapter One</div>
+      <h3>The Four Great Declarations
+        <span class="sanskrit-inline">Mahāvākyāni</span>
+      </h3>
+      <div class="ornament"><span>❖</span></div>
+    </div>
+    <p class="section-intro">Drawn from the Upanishads, these four utterances are the luminous seeds of Vedantic realization — each pointing, in its own way, to the identity of the individual self with the Absolute.</p>
+
+    <div class="mahavakyas">
+      <div class="mahavakya">
+        <div class="veda">Chandogya Upanishad</div>
+        <div class="sanskrit-text">Tat Tvam Asi</div>
+        <div class="meaning">"Thou Art That"</div>
+        <div class="literal">The self within you is the very reality that pervades all.</div>
+      </div>
+
+      <div class="mahavakya">
+        <div class="veda">Brihadaranyaka Upanishad</div>
+        <div class="sanskrit-text">Aham Brahmāsmi</div>
+        <div class="meaning">"I Am Brahman"</div>
+        <div class="literal">The "I" that you truly are is the infinite, boundless reality.</div>
+      </div>
+
+      <div class="mahavakya">
+        <div class="veda">Mandukya Upanishad</div>
+        <div class="sanskrit-text">Ayam Ātmā Brahma</div>
+        <div class="meaning">"This Self is Brahman"</div>
+        <div class="literal">The consciousness within is the consciousness that is all.</div>
+      </div>
+
+      <div class="mahavakya">
+        <div class="veda">Mandukya Upanishad</div>
+        <div class="sanskrit-text">Prajñānam Brahma</div>
+        <div class="meaning">"Consciousness is Brahman"</div>
+        <div class="literal">Pure awareness itself is the ultimate reality.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nature of Brahman -->
+  <section id="nature" class="vedanta-section">
+    <div class="section-header">
+      <div class="section-number">Chapter Two</div>
+      <h3>The Nature of Brahman
+        <span class="sanskrit-inline">Sat-Cit-Ānanda</span>
+      </h3>
+      <div class="ornament"><span>❖</span></div>
+    </div>
+    <p class="section-intro">Brahman is not an object to be found, but the very ground of all finding. It is described through three inseparable aspects — existence, consciousness, and bliss — which are not attributes but its very essence.</p>
+
+    <div class="cards">
+      <div class="card" style="border-color: rgba(232, 155, 60, 0.2);">
+        <div class="card-sub" style="color: var(--saffron);">First Aspect</div>
+        <h4>Sat</h4>
+        <div class="card-sub" style="color: var(--saffron-soft);">Existence · Being</div>
+        <p>That which never ceases to be. Brahman is pure existence — not a particular thing that exists, but existence itself. It is the "is-ness" in every object, the silent ground upon which all appearances arise and dissolve.</p>
+      </div>
+
+      <div class="card" style="border-color: rgba(232, 155, 60, 0.2);">
+        <div class="card-sub" style="color: var(--saffron);">Second Aspect</div>
+        <h4>Cit</h4>
+        <div class="card-sub" style="color: var(--saffron-soft);">Consciousness · Awareness</div>
+        <p>That which knows. Brahman is self-luminous awareness — not the mind that thinks, but the light by which thought itself is known. It is the witness behind every experience, untouched by what it illumines.</p>
+      </div>
+
+      <div class="card" style="border-color: rgba(232, 155, 60, 0.2);">
+        <div class="card-sub" style="color: var(--saffron);">Third Aspect</div>
+        <h4>Ānanda</h4>
+        <div class="card-sub" style="color: var(--saffron-soft);">Bliss · Fullness</div>
+        <p>That which is complete. Not the fleeting joy of objects, but the fullness of being without lack. When the mind is still and desire subsides, what remains is not emptiness but an ocean of uncaused peace.</p>
+      </div>
+    </div>
+
+    <div class="quote">
+      <p>The knowing of Brahman is not the acquisition of something new, but the recognition of what has always been — closer than the close, dearer than the dear.</p>
+      <div class="source">— Echoes of the Upanishads</div>
+    </div>
+  </section>
+
+  <!-- The Path -->
+  <section id="path" class="vedanta-section">
+    <div class="section-header">
+      <div class="section-number">Chapter Three</div>
+      <h3>The Threefold Practice
+        <span class="sanskrit-inline">Śravaṇa · Manana · Nididhyāsana</span>
+      </h3>
+      <div class="ornament"><span>❖</span></div>
+    </div>
+    <p class="section-intro">The path of Jñāna Yoga unfolds in three progressive movements — from hearing the truth, to reflecting upon it, to abiding as it. Each deepens the other, until knowledge becomes being.</p>
+
+    <div class="cards">
+      <div class="card" style="border-color: rgba(232, 155, 60, 0.2);">
+        <div class="card-sub" style="color: var(--saffron);">First Movement</div>
+        <h4>Śravaṇa</h4>
+        <div class="card-sub" style="color: var(--saffron-soft);">Hearing the Truth</div>
+        <p>Receiving the Mahavakyas from a qualified teacher — not as information, but as a living pointer. The mind listens with openness, allowing the great words to settle in. This is the seed: <em>"You are Brahman."</em></p>
+      </div>
+
+      <div class="card" style="border-color: rgba(232, 155, 60, 0.2);">
+        <div class="card-sub" style="color: var(--saffron);">Second Movement</div>
+        <h4>Manana</h4>
+        <div class="card-sub" style="color: var(--saffron-soft);">Reflection</div>
+        <p>The intellect turns the teaching over again and again, examining it with reason, removing doubts, testing it against experience. What was heard becomes understood. The seed begins to take root in the soil of conviction.</p>
+      </div>
+
+      <div class="card" style="border-color: rgba(232, 155, 60, 0.2);">
+        <div class="card-sub" style="color: var(--saffron);">Third Movement</div>
+        <h4>Nididhyāsana</h4>
+        <div class="card-sub" style="color: var(--saffron-soft);">Profound Meditation</div>
+        <p>The steady abidance in the truth that has been understood. No longer an idea but a living reality — the mind dissolves into its source, and the one who meditates and the meditation become one. The seed flowers into recognition.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Koshas -->
+  <section id="koshas" class="vedanta-section">
+    <div class="section-header">
+      <div class="section-number">Chapter Four</div>
+      <h3>The Five Sheaths
+        <span class="sanskrit-inline">Pañca Kośa · Neti Neti</span>
+      </h3>
+      <div class="ornament"><span>❖</span></div>
+    </div>
+    <p class="section-intro">The Taittirīya Upanishad describes five layers that veil the Self — from the gross body to the subtlest bliss-body. Through the method of <em>neti neti</em> ("not this, not this"), the seeker disidentifies from each, until only the witness remains.</p>
+
+    <div class="koshas">
+      <div class="kosha">
+        <div class="layer">Outermost · Annamaya</div>
+        <h4>The Food Sheath</h4>
+        <div class="name-sanskrit">Annamaya Kośa</div>
+        <p>The physical body — born of food, sustained by food, returning to food. It is born, it changes, it dies. You witness it; therefore you are not it.</p>
+        <div class="verdict">→ "Not this. I am the witness of the body."</div>
+      </div>
+
+      <div class="kosha">
+        <div class="layer">Second · Prāṇamaya</div>
+        <h4>The Vital Sheath</h4>
+        <div class="name-sanskrit">Prāṇamaya Kośa</div>
+        <p>The life-force — the breath, the energy that animates the body. It flows and fades, rises and falls. You are aware of it; therefore you are not it.</p>
+        <div class="verdict">→ "Not this. I am the witness of the breath."</div>
+      </div>
+
+      <div class="kosha">
+        <div class="layer">Third · Manomaya</div>
+        <h4>The Mental Sheath</h4>
+        <div class="name-sanskrit">Manomaya Kośa</div>
+        <p>The mind of sensation, emotion, and everyday thought — the stream of impressions that rises and passes. You observe it; therefore you are not it.</p>
+        <div class="verdict">→ "Not this. I am the witness of the mind."</div>
+      </div>
+
+      <div class="kosha">
+        <div class="layer">Fourth · Vijñānamaya</div>
+        <h4>The Intellectual Sheath</h4>
+        <div class="name-sanskrit">Vijñānamaya Kośa</div>
+        <p>The intellect — the discriminating faculty, the sense of doership, the "I" that judges and decides. Even this is an object of awareness, and therefore not the Self.</p>
+        <div class="verdict">→ "Not this. I am the witness of the intellect."</div>
+      </div>
+
+      <div class="kosha">
+        <div class="layer">Innermost · Ānandamaya</div>
+        <h4>The Bliss Sheath</h4>
+        <div class="name-sanskrit">Ānandamaya Kośa</div>
+        <p>The subtlest veil — the experience of deep joy, encountered in deep sleep and in moments of profound peace. Yet even this bliss comes and goes. You illumine it; therefore you are not it.</p>
+        <div class="verdict">→ "Not this. I am the witness of bliss itself."</div>
+      </div>
+    </div>
+
+    <div class="quote">
+      <p>When every sheath is negated, what remains is not nothing — it is the fullness that cannot be named, the awareness that cannot be objectified, the Self that has never been absent.</p>
+      <div class="source">— The Method of Neti Neti</div>
+    </div>
+  </section>
+
+  <!-- Self-Inquiry -->
+  <section id="inquiry" class="vedanta-section">
+    <div class="section-header">
+      <div class="section-number">Chapter Five</div>
+      <h3>The Practice of Self-Inquiry
+        <span class="sanskrit-inline">Ātma Vicāra</span>
+      </h3>
+      <div class="ornament"><span>❖</span></div>
+    </div>
+    <p class="section-intro">Taught most directly by Ramana Maharshi, this is the direct path: turning attention back upon itself, asking the question that dissolves the questioner.</p>
+
+    <div class="practice-steps">
+      <div class="practice-step">
+        <h4>Turn Within</h4>
+        <div class="sanskrit-name">The First Gesture</div>
+        <p>Sit quietly. Let the breath settle. When a thought arises — of the past, the future, of yourself — ask gently: <em>"To whom does this thought arise?"</em> The answer will be: "To me."</p>
+      </div>
+
+      <div class="practice-step">
+        <h4>Ask the Essential Question</h4>
+        <div class="sanskrit-name">Who Am I?</div>
+        <p>Now ask: <em>"Who am I?"</em> Not as an intellectual puzzle, but as a sincere seeking. Do not answer with words. Let the question sink into the heart like a stone into a still lake.</p>
+      </div>
+
+      <div class="practice-step">
+        <h4>Trace the "I" to Its Source</h4>
+        <div class="sanskrit-name">The Returning</div>
+        <p>Attend to the feeling of "I" — the bare sense of being, prior to any thought. Follow it inward, like a river tracing itself back to its source. Every time the mind wanders, return gently to this feeling.</p>
+      </div>
+
+      <div class="practice-step">
+        <h4>Abide as the Witness</h4>
+        <div class="sanskrit-name">The Dissolving</div>
+        <p>In time, the seeker and the sought meet. The "I"-thought dissolves into its source, and what remains is not a person experiencing something, but pure, objectless awareness — silent, luminous, whole.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- SYNTHESIS -->
+  <!-- ============================================= -->
+  <div class="synthesis" id="synthesis">
+    <div class="synthesis-inner">
+      <div class="kicker">The Cumulative Case</div>
+      <h2>Five Converging Lines of <span class="italic">Critique</span></h2>
+      <p class="lead">Across the monotheistic traditions, the same five territories of inquiry yield parallel skeptical conclusions — pointing toward a single, cumulative case against the truth claims of orthodox revealed religion.</p>
+
+      <div class="synthesis-grid">
+        <div class="synthesis-card">
+          <div class="num">I</div>
+          <h4>Philosophy</h4>
+          <p>Concepts of God are internally problematic — the problem of evil, divine hiddenness, and paradoxes of divine attributes persist across traditions.</p>
+        </div>
+
+        <div class="synthesis-card">
+          <div class="num">II</div>
+          <h4>History</h4>
+          <p>Foundational texts are human-made, historically flawed documents — compiled, edited, and transmitted through processes that reveal human agency rather than divine preservation.</p>
+        </div>
+
+        <div class="synthesis-card">
+          <div class="num">III</div>
+          <h4>Science</h4>
+          <p>Nature provides adequate explanations — from cosmology and evolution to neuroscience — rendering divine action unnecessary as explanation for the world and for religious experience.</p>
+        </div>
+
+        <div class="synthesis-card">
+          <div class="num">IV</div>
+          <h4>Anthropology</h4>
+          <p>Religion is a cultural and cognitive byproduct — shaped by geography, social context, and evolutionary psychology rather than by divine revelation.</p>
+        </div>
+
+        <div class="synthesis-card">
+          <div class="num">V</div>
+          <h4>Exclusivity</h4>
+          <p>The mutually exclusive claims of the traditions — and within them — further undermine the idea that any one holds a monopoly on divine truth.</p>
+        </div>
+      </div>
+
+      <div class="synthesis-conclusion">
+        <p>From a strictly critical, secular, or skeptical viewpoint, the convergence of these five categories forms a cumulative case: that the truth claims of orthodox monotheism — Jewish, Christian, and Islamic — are best explained as human cultural constructs rather than divine revelation.</p>
+        <p style="margin-top: 1.5rem; color: var(--saffron-soft);">Yet Vedanta offers a different kind of claim altogether — not a revelation from a transcendent God, but the recognition that the divine is the very ground of one's own being.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================= -->
+  <!-- BENEDICTION -->
+  <!-- ============================================= -->
+  <div class="benediction">
+    <div class="om">ॐ</div>
+    <h2>Aham Brahmāsmi</h2>
+    <p>You have never been separate. You have never been bound. The seeker, the path, and the goal are one.</p>
+    <p>What you seek is what you are — and what you are has never been anything other than the infinite, luminous, ever-free Self.</p>
+    <div class="peace">ॐ शान्तिः शान्तिः शान्तिः · Om Peace Peace Peace</div>
+  </div>
+
+  <!-- ============================================= -->
+  <!-- CONTEXTUAL NOTE -->
+  <!-- ============================================= -->
+  <div class="note">
+    <span class="note-label">Contextual Note</span>
+    <h3>A Balanced Intellectual Discourse</h3>
+    <p>It is vital to recognize that this map represents the skeptical/critical side of a millennia-old intellectual discourse. Theologians, philosophers of religion, and believers across all three traditions have developed robust counter-arguments — apologetics — for every point listed above.</p>
+    <p>These include sophisticated defenses of textual preservation, re-interpretations of controversial passages through modern ethical and literary lenses, philosophical reconciliations of divine attributes with human freedom, non-literal readings of scripture, and detailed historical scholarship affirming traditional narratives.</p>
+    <p>The goal of this map is not to declare falsehood, but to present the critical perspective coherently and objectively — as one voice in an ongoing conversation that has shaped Western and global thought for centuries. Vedanta, meanwhile, offers a contemplative rather than a creedal path — one whose claims are to be tested in direct experience rather than accepted on authority.</p>
+  </div>
+
+</main>
+
+<footer>
+  <div class="ornament">✦ ✦ ✦</div>
+  <div class="title">A Conceptual Map of Critical Arguments &amp; Contemplative Paths</div>
+  <p>An academic survey · Intended for study, reflection, and comparative inquiry</p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.animationPlayState = 'running';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.card, .sub-card, .synthesis-card, .mahavakya, .kosha, .state, .stage, .practice-step').forEach(el => {
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
